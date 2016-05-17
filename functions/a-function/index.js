@@ -3,5 +3,5 @@ exports.handler = function(event, context, callback) {
   console.log(event)
   console.log(context)
 
-  callback(null, 'success!')
+  callback(null, {"things": [{ "name": "thing 1" }, {"name": "thing 2"}]})
 }
