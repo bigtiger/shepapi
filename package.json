@@ -1,0 +1,22 @@
+{
+  "name": "shepapi.adorable.io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "license": "",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-es2015": "^6.5.0"
+  },
+  "shep": {
+    "region": "us-east-1",
+    "functionNamespace": "shepapi-adorable-io",
+    "accountId": "256482489647",
+    "apiId": "e9lc9oqapj"
+  }
+}
