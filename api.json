@@ -2,5 +2,11 @@
   {
     "id": "gac8qbpz7h",
     "path": "/"
+  },
+  {
+    "id": "pnt1sh",
+    "parentId": "gac8qbpz7h",
+    "pathPart": "things",
+    "path": "/things"
   }
 ]
