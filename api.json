@@ -7,6 +7,35 @@
     "id": "pnt1sh",
     "parentId": "gac8qbpz7h",
     "pathPart": "things",
-    "path": "/things"
+    "path": "/things",
+    "resourceMethods": {
+      "GET": {
+        "httpMethod": "GET",
+        "authorizationType": "NONE",
+        "apiKeyRequired": false,
+        "methodResponses": {
+          "200": {
+            "statusCode": "200"
+          }
+        },
+        "methodIntegration": {
+          "type": "AWS",
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:256482489647:function:shepapi-adorable-io-a-function:${stageVariables.functionAlias}/invocations",
+          "requestTemplates": {
+            "application/json": "{\n  \"headers\": {\n  #foreach( $key in $input.params().header.keySet() )\n    \"$key\": \"$util.escapeJavaScript($input.params().header.get($key))\"#if( $foreach.hasNext ),#end\n  #end\n  },\n  \"pathParameters\": {\n  #foreach( $key in $input.params().path.keySet() )\n    \"$key\": \"$util.escapeJavaScript($input.params().path.get($key))\"#if( $foreach.hasNext ),#end\n  #end\n  },\n  \"queryParameters\": {\n  #foreach( $key in $input.params().querystring.keySet() )\n    \"$key\": \"$util.escapeJavaScript($input.params().querystring.get($key))\"#if( $foreach.hasNext ),#end\n  #end\n  },\n  \"body\": $input.json('$')\n}"
+          },
+          "passthroughBehavior": "WHEN_NO_MATCH",
+          "cacheNamespace": "pnt1sh",
+          "cacheKeyParameters": [],
+          "integrationResponses": {
+            "200": {
+              "statusCode": "200",
+              "responseTemplates": {}
+            }
+          }
+        }
+      }
+    }
   }
 ]
